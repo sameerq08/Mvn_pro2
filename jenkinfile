@@ -1,0 +1,24 @@
+node 
+{
+	stage('Checkout')
+	{	
+		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '66c6a0f5-6ae5-4983-a13d-194dada4d42d', url: 'https://github.com/sameerq08/Mvn_pro2.git']]])
+		def workspace =pwd()
+	}
+	stage('Static Code Analysis')
+	{
+		echo "Static Code Analysis"
+	}
+	stage('Build')
+	{
+		echo "Build the Code"
+	}
+	stage('Unit Testing')
+	{
+		echo "Unit Testing"
+	}
+	stage('Delivery')
+	{
+		echo "Delivery the code"
+	}
+}
